@@ -32,23 +32,7 @@ def index():
         if response.status_code == 200:
                 # Get the repositories from the response
                 repositories = response.json()['items']
-                # Add the repositories to the list
-                all_repos_names.extend([{
-                        'full_name':repo['full_name'],
-                        'url':repo['html_url'],
-                        'clone_url':repo['clone_url'],
-                        'watchers_count':repo['watchers_count'],
-                        'stargazers_count':repo['stargazers_count'],
-                        'language':repo['language'],
-                        'forks':repo['forks'],
-                        'description':repo['description'],
-                        'type':repo['owner']['type'],
-                        'license':repo['license'],
-                        'fork':repo['fork'],
-                        'created_at':repo['created_at'],
-                        'updated_at':repo['updated_at'],
-                        'pushed_at':repo['pushed_at'],
-                        } for repo in repositories])
-        return json.dump(all_repos_names)
+                print(repositories)
+
 
 asgi_app = WsgiToAsgi(app)
