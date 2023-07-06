@@ -17,8 +17,7 @@ def index():
 
         base_url = 'https://api.github.com/search/repositories'
         all_repos_names = []
-        page_number = 1
-        per_page = 5
+
         query = f'created:2023-06-01..2023-06-01'
         while page_number <= 1:
                 # Set the request parameters for the current page
@@ -26,8 +25,8 @@ def index():
                 'q': query,
                 'sort': 'stars',
                 'order': 'desc',
-                'per_page': per_page,
-                'page': page_number
+                'per_page': 5,
+                'page': 1
                 }
                 # Send the API request
                 response = requests.get(base_url, headers=headers, params=params)
@@ -63,9 +62,6 @@ def index():
                         break
                 time.sleep(1)
         time.sleep(1)
-        page_number = 1
-        day+=1
-
         return json.dump(all_repos_names)
 
 asgi_app = WsgiToAsgi(app)
