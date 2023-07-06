@@ -5,7 +5,7 @@ from asgiref.wsgi import WsgiToAsgi
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/<name>')
 def index(name):
         return f'Hello! {name}'
 
