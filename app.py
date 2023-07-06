@@ -9,6 +9,13 @@ app = Flask(__name__)
 
 @app.route('/<dt_from>/<dt_to>')
 def index(dt_from,dt_to):
+        access_token = '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'
+        headers = {
+        'Authorization': f'Bearer {access_token}',
+        'Accept': 'application/vnd.github.v3+json'
+        }
+
+        base_url = 'https://api.github.com/search/repositories'
         all_repos_names = []
         page_number = 1
         per_page = 5
