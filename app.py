@@ -17,12 +17,12 @@ def index():
         base_url = 'https://api.github.com/search/repositories'
 
         params = {
-                'q': 'created:2023-06-01..2023-06-01',
-                'sort': 'stars',
-                'order': 'desc',
-                'per_page': 5,
-                'page': 1
-                }
+        'q': 'created:2023-06-01..2023-06-01',
+        'sort': 'stars',
+        'order': 'desc',
+        'per_page': 5,
+        'page': 1
+        }
         # Send the API request
         response = requests.get(base_url, headers=headers, params=params)
         # Check if the request was successful
