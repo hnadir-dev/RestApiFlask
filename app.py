@@ -7,8 +7,8 @@ from asgiref.wsgi import WsgiToAsgi
 
 app = Flask(__name__)
 
-@app.route('/<dt_from>/<dt_to>')
-def index(dt_from,dt_to):
+@app.route('/')
+def index():
         access_token = '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'
         headers = {
         'Authorization': f'Bearer {access_token}',
@@ -19,7 +19,7 @@ def index(dt_from,dt_to):
         all_repos_names = []
         page_number = 1
         per_page = 5
-        query = f'created:{dt_from}..{dt_to}'
+        query = f'created:2023-06-01..2023-06-01'
         while page_number <= 1:
                 # Set the request parameters for the current page
                 params = {
