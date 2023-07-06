@@ -6,7 +6,7 @@ from asgiref.wsgi import WsgiToAsgi
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-        return json.dumps({'name': 'alice','email': 'alice@outlook.com'})
+def index(name):
+        return f'Hello! {name}'
 
 asgi_app = WsgiToAsgi(app)
