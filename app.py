@@ -1,6 +1,4 @@
-import json
 from flask import Flask
-import time
 import requests
 from asgiref.wsgi import WsgiToAsgi
 
@@ -17,11 +15,9 @@ def index():
         }
 
         base_url = 'https://api.github.com/search/repositories'
-        all_repos_names = []
 
-        query = f'created:2023-06-01..2023-06-01'
         params = {
-                'q': query,
+                'q': 'created:2023-06-01..2023-06-01',
                 'sort': 'stars',
                 'order': 'desc',
                 'per_page': 5,
@@ -32,9 +28,9 @@ def index():
         # Check if the request was successful
         if response.status_code == 200:
                 # Get the repositories from the response
-                repositories = response.json()['items']
+                return response.json()['items']
         
-        return requests.get(base_url, headers=headers, params=params)
+        return 'requests.get(base_url, headers=headers, params=params)'
 
 
 asgi_app = WsgiToAsgi(app)
