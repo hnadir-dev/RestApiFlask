@@ -10,6 +10,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
         access_token = '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'
+
         headers = {
         'Authorization': f'Bearer {access_token}',
         'Accept': 'application/vnd.github.v3+json'
@@ -32,7 +33,8 @@ def index():
         if response.status_code == 200:
                 # Get the repositories from the response
                 repositories = response.json()['items']
-                print(repositories)
+        
+        return requests.get(base_url, headers=headers, params=params)
 
 
 asgi_app = WsgiToAsgi(app)
