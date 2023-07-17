@@ -9,9 +9,9 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     url = "https://www.youtube.com/watch?v=6U1wyOyuzj4"
-    video = pafy.new(url)
+    #video = pafy.new(url)video.getbestaudio().url
 
-    return render_template("index.html", url = video.getbestaudio().url)
+    return render_template("index.html", url = url)
     #return "video.getbestaudio().url"
 
 
