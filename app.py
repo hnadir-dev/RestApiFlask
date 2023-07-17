@@ -1,9 +1,12 @@
+import os
 import pafy
 from flask import Flask
 from asgiref.wsgi import WsgiToAsgi
 
 
-app = Flask(__name__)
+project_root = os.path.dirname(__file__)
+template_path = os.path.join(project_root, "app/templates")
+app = Flask(__name__, template_folder=template_path)
 
 
 @app.route("/")
