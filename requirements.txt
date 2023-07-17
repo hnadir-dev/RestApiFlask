@@ -1,4 +1,4 @@
 gunicorn
 flask
 asgiref
-requests
+pafy
